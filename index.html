@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bê Tông Vải Cuộn - Giải Pháp Xây Dựng Hiện Đại</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1e40af;
+            --secondary-color: #059669;
+            --accent-color: #f59e0b;
+            --dark-gray: #374151;
+            --light-gray: #f3f4f6;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #3b82f6);
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text .brand-name {
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .logo-text .brand-tagline {
+            font-size: 12px;
+            opacity: 0.9;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%23f3f4f6"/><path fill="%23e5e7eb" d="M0 540l80-45 80 90 80-135 80 180 80-225 80 270 80-315 80 360 80-405 80 450 80-495 80 540 80-585 80 630 80-675 80 720 80-765 80 810 80-855 80 900v180H0z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, var(--accent-color), #f97316);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.6);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 20px auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), #3b82f6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            color: white;
+        }
+
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        /* Advantages Section */
+        .advantages {
+            padding: 80px 0;
+            background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="%23e5e7eb" stroke-width="1"/></pattern></defs><rect width="1920" height="1080" fill="%23f9fafb"/><rect width="1920" height="1080" fill="url(%23grid)"/><g opacity="0.1"><rect x="100" y="100" width="300" height="200" fill="%231e40af"/><rect x="500" y="300" width="400" height="250" fill="%23059669"/><rect x="1000" y="150" width="350" height="300" fill="%23f59e0b"/><rect x="200" y="500" width="450" height="200" fill="%233b82f6"/><rect x="1400" y="400" width="300" height="350" fill="%2310b981"/><circle cx="300" cy="800" r="100" fill="%23667eea"/><circle cx="1600" cy="200" r="80" fill="%23ef4444"/><path d="M 0 900 Q 400 700 800 850 T 1600 800 L 1920 1080 L 0 1080 Z" fill="%23e0e7ff"/></g><text x="50" y="50" font-family="monospace" font-size="14" fill="%23d1d5db">CONCRETE CANVAS CONSTRUCTION</text><text x="1700" y="50" font-family="monospace" font-size="14" fill="%23d1d5db">GCCM TECHNOLOGY</text></svg>'),
+                center center/cover;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .advantages-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .advantages-text ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .advantages-text li {
+            padding: 15px 0;
+            padding-left: 40px;
+            position: relative;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .advantages-text li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .advantages-image {
+            background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .advantages-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            height: 250px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay span {
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/><circle cx="50" cy="50" r="30" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/><circle cx="50" cy="50" r="20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+            background-size: 200px 200px;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(50px, -50px);
+            }
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--dark-gray);
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .price {
+            font-size: 48px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 20px 0;
+        }
+
+        .price-unit {
+            font-size: 20px;
+            color: var(--dark-gray);
+        }
+
+        .price-features {
+            list-style: none;
+            padding: 30px 0;
+        }
+
+        .price-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .contact-form {
+            background: var(--light-gray);
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--primary-color), #3b82f6);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(30, 64, 175, 0.3);
+        }
+
+        .contact-info {
+            padding: 40px;
+        }
+
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--secondary-color), #10b981);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1a202c, #2d3748);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-about h4 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .footer-about p {
+            line-height: 1.8;
+            color: #cbd5e0;
+        }
+
+        .footer-links h5 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #4a5568;
+            color: #a0aec0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .logo-text .brand-tagline {
+                display: none;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .advantages-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .contact-form {
+                padding: 20px;
+            }
+
+            .contact-info {
+                padding: 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .price {
+                font-size: 36px;
+            }
+
+            .pricing-card {
+                padding: 30px 20px;
+            }
+        }
+
+        /* iPhone specific fixes */
+        @media (max-width: 414px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .cta-button {
+                padding: 12px 30px;
+                font-size: 16px;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                font-size: 16px;
+                /* Prevents zoom on iOS */
+                padding: 15px;
+            }
+
+            .submit-button {
+                font-size: 16px;
+                padding: 18px;
+            }
+
+            .info-item {
+                font-size: 14px;
+            }
+
+            .advantages-text li {
+                font-size: 14px;
+                padding-left: 35px;
+            }
+
+            .footer-about p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">
+                <img src="/images/logo.jpg" alt="Logo Bê Tông Vải Cuộn">
+                <div class="logo-text">
+                    <span class="brand-name">Bê Tông Vải Cuộn</span>
+                    <span class="brand-tagline">Giải pháp GCCM hàng đầu</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Trang Chủ</a></li>
+                <li><a href="#features">Tính Năng</a></li>
+                <li><a href="#advantages">Ưu Điểm</a></li>
+                <li><a href="#gallery">Sản Phẩm</a></li>
+                <li><a href="#pricing">Báo Giá</a></li>
+                <li><a href="#contact">Liên Hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Giải Pháp Bê Tông Vải Cuộn Hiện Đại</h1>
+                <p>Công nghệ GCCM tiên tiến - Thi công nhanh, bền vững, hiệu quả cao cho mọi công trình</p>
+                <a href="#contact" class="cta-button">Nhận Báo Giá Ngay</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Điểm Nổi Bật Của Sản Phẩm</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Thi Công Nhanh Chóng</h3>
+                    <p>Tốc độ lắp đặt 200m²/giờ, nhanh gấp 10 lần bê tông thông thường. Tiết kiệm thời gian và nhân công
+                        đáng kể.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💪</div>
+                    <h3>Độ Bền Vượt Trội</h3>
+                    <p>Cường độ chịu nén tương đương MAC 600, tuổi thọ lên đến 120 năm theo chứng nhận BBA của Anh.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💧</div>
+                    <h3>Chống Thấm Tuyệt Đối</h3>
+                    <p>Lớp nền PVC/LLDPE đảm bảo khả năng chống thấm hoàn hảo, ngăn ngừa xói mòn hiệu quả.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Linh Hoạt Cao</h3>
+                    <p>Dễ dàng cắt, uốn theo địa hình. Phù hợp với mọi loại công trình từ đơn giản đến phức tạp.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌱</div>
+                    <h3>Thân Thiện Môi Trường</h3>
+                    <p>Không cần trạm trộn, giảm phát thải CO2. Chỉ cần phun nước để kích hoạt quá trình đông kết.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Tiết Kiệm Chi Phí</h3>
+                    <p>Giảm 40-50% chi phí so với phương pháp truyền thống nhờ thi công nhanh và ít tốn nhân công.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section id="advantages" class="advantages">
+        <div class="container">
+            <h2 class="section-title">Ứng Dụng Đa Dạng</h2>
+            <div class="advantages-content">
+                <div class="advantages-text">
+                    <ul>
+                        <li><strong>Lót kênh mương thủy lợi:</strong> Thay thế bê tông truyền thống, thi công không cần
+                            thiết bị chuyên dụng</li>
+                        <li><strong>Bảo vệ mái dốc, ta luy:</strong> Chống xói mòn, sạt lở hiệu quả cho đường bộ và công
+                            trình</li>
+                        <li><strong>Kè bờ sông, hồ chứa:</strong> Gia cố bờ, chống sạt lở với khả năng chịu sóng và dòng
+                            chảy cao</li>
+                        <li><strong>Bọc ống dẫn, cống thoát:</strong> Bảo vệ và tăng tuổi thọ cho hệ thống cống ngầm
+                        </li>
+                        <li><strong>Công trình dầu khí, hóa chất:</strong> Đáp ứng tiêu chuẩn khắt khe về an toàn và môi
+                            trường</li>
+                        <li><strong>Sửa chữa, nâng cấp công trình:</strong> Phục hồi nhanh các công trình hư hỏng</li>
+                    </ul>
+                </div>
+                <div class="advantages-image">
+                    <h3 style="color: var(--primary-color); margin-bottom: 20px;">Tiêu Chuẩn Quốc Tế</h3>
+                    <p style="font-size: 18px; color: var(--dark-gray);">
+                        <strong>ASTM D8364</strong><br>
+                        Đạt chuẩn quốc tế về vật liệu GCCM
+                    </p>
+                    <p style="margin-top: 20px; color: var(--dark-gray);">
+                        ✅ CCT1™ - Loại I<br>
+                        ✅ CCT2™ - Loại II<br>
+                        ✅ CCT3™ - Loại III
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Album Sản Phẩm & Công Trình</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23667eea' width='400' height='300'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='white' font-size='20'>Lót Kênh Mương</text></svg>"
+                        alt="Lót kênh mương">
+                    <div class="gallery-overlay">
+                        <span>Thi công lót kênh mương thủy lợi</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%2310b981' width='400' height='300'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='white' font-size='20'>Bảo Vệ Mái Dốc</text></svg>"
+                        alt="Bảo vệ mái dốc">
+                    <div class="gallery-overlay">
+                        <span>Gia cố mái ta luy đường cao tốc</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23f59e0b' width='400' height='300'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='white' font-size='20'>Kè Bờ Sông</text></svg>"
+                        alt="Kè bờ sông">
+                    <div class="gallery-overlay">
+                        <span>Công trình kè bờ sông</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23ef4444' width='400' height='300'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='white' font-size='20'>Bọc Cống</text></svg>"
+                        alt="Bọc cống">
+                    <div class="gallery-overlay">
+                        <span>Bảo vệ cống thoát nước</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%238b5cf6' width='400' height='300'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='white' font-size='20'>Hồ Chứa</text></svg>"
+                        alt="Hồ chứa">
+                    <div class="gallery-overlay">
+                        <span>Lót đáy và thành hồ chứa nước</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%2306b6d4' width='400' height='300'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='white' font-size='20'>Công Trình Dầu Khí</text></svg>"
+                        alt="Dầu khí">
+                    <div class="gallery-overlay">
+                        <span>Ứng dụng trong công trình dầu khí</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Báo Giá Sản Phẩm</h2>
+            <div class="pricing-card">
+                <h3 style="font-size: 28px; color: var(--primary-color); margin-bottom: 10px;">Bê Tông Vải Cuộn</h3>
+                <div class="price">
+                    350.000 <span class="price-unit">VNĐ/m²</span>
+                </div>
+                <ul class="price-features">
+                    <li>✓ Vật liệu chất lượng cao đạt chuẩn ASTM D8364</li>
+                    <li>✓ Độ dày từ 5mm - 13mm tùy loại</li>
+                    <li>✓ Bảo hành chất lượng sản phẩm</li>
+                    <li>✓ Hướng dẫn thi công chi tiết</li>
+                    <li>✓ Tư vấn giải pháp kỹ thuật miễn phí</li>
+                    <li>✓ Giao hàng toàn quốc</li>
+                </ul>
+                <a href="#contact" class="cta-button" style="margin-top: 20px;">Liên Hệ Ngay</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Liên Hệ Với Chúng Tôi</h2>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label>Họ và Tên *</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Số Điện Thoại *</label>
+                            <input type="tel" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email">
+                        </div>
+                        <div class="form-group">
+                            <label>Nội Dung Yêu Cầu</label>
+                            <textarea rows="4" placeholder="Mô tả chi tiết về dự án của bạn..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Gửi Yêu Cầu Báo Giá</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Thông Tin Liên Hệ</h3>
+                    <div class="info-item">
+                        <div class="info-icon">📞</div>
+                        <div>
+                            <strong>Hotline:</strong><br>
+                            0909 123 456 - 0908 765 432
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">✉</div>
+                        <div>
+                            <strong>Email:</strong><br>
+                            info@betongvaicuon.vn
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div>
+                            <strong>Văn phòng:</strong><br>
+                            123 Đường ABC, Quận XYZ, TP.HCM
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">🏭</div>
+                        <div>
+                            <strong>Nhà máy:</strong><br>
+                            KCN Tân Bình, Bình Dương
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">⏰</div>
+                        <div>
+                            <strong>Giờ làm việc:</strong><br>
+                            Thứ 2 - Thứ 7: 8:00 - 17:30
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h4>Công Ty TNHH Bê Tông Vải Cuộn Việt Nam</h4>
+                    <p>Chúng tôi tự hào là đơn vị tiên phong trong việc cung cấp giải pháp bê tông vải cuộn (GCCM) tại
+                        Việt Nam. Với công nghệ tiên tiến từ Châu Âu và đội ngũ kỹ sư giàu kinh nghiệm, chúng tôi cam
+                        kết mang đến những sản phẩm chất lượng cao, đáp ứng mọi yêu cầu khắt khe của các công trình xây
+                        dựng hiện đại.</p>
+                    <p style="margin-top: 15px;">Giấy phép kinh doanh: 0123456789<br>
+                        Cấp ngày: 01/01/2020 tại Sở KH&ĐT TP.HCM</p>
+                </div>
+                <div class="footer-links">
+                    <h5>Sản Phẩm</h5>
+                    <ul>
+                        <li><a href="#">Bê tông vải CC</a></li>
+                        <li><a href="#">Bê tông vải CCX</a></li>
+                        <li><a href="#">Phụ kiện thi công</a></li>
+                        <li><a href="#">Tư vấn giải pháp</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h5>Dịch Vụ</h5>
+                    <ul>
+                        <li><a href="#">Thi công trọn gói</a></li>
+                        <li><a href="#">Cho thuê thiết bị</a></li>
+                        <li><a href="#">Đào tạo kỹ thuật</a></li>
+                        <li><a href="#">Bảo trì, bảo dưỡng</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bê Tông Vải Cuộn Việt Nam. Bản quyền thuộc về chúng tôi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        document.querySelector('.contact-form form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong thời gian sớm nhất.');
+            this.reset();
+        });
+
+        // Scroll animations
+        window.addEventListener('scroll', function () {
+            const elements = document.querySelectorAll('.feature-card, .gallery-item');
+            elements.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function () {
+            const elements = document.querySelectorAll('.feature-card, .gallery-item');
+            elements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'all 0.6s ease-out';
+            });
+        });
+    </script>
+</body>
+
+</html>
