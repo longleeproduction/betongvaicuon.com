@@ -109,21 +109,140 @@
             transform: translateY(-2px);
         }
 
-        /* Hero Section */
+        /* Hero Section with Slider */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%23f3f4f6"/><path fill="%23e5e7eb" d="M0 540l80-45 80 90 80-135 80 180 80-225 80 270 80-315 80 360 80-405 80 450 80-495 80 540 80-585 80 630 80-675 80 720 80-765 80 810 80-855 80 900v180H0z"/></svg>');
-            background-size: cover;
-            background-position: center;
             height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
             margin-top: 80px;
+            overflow: hidden;
+        }
+
+        .hero-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-slide::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.7), rgba(0, 0, 0, 0.5));
         }
 
         .hero-content {
-            max-width: 600px;
+            max-width: 650px;
             animation: slideInLeft 1s ease-out;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Slider Navigation Dots */
+        .slider-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 3;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid white;
+        }
+
+        .slider-dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        .slider-dot:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Slider Arrows */
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 3;
+            transition: all 0.3s;
+            color: white;
+            font-size: 20px;
+        }
+
+        .slider-arrow:hover {
+            background: rgba(255, 255, 255, 0.4);
+            border-color: white;
+        }
+
+        .slider-arrow.prev {
+            left: 20px;
+        }
+
+        .slider-arrow.next {
+            right: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .slider-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+
+            .slider-dots {
+                bottom: 20px;
+            }
+
+            .slider-dot {
+                width: 10px;
+                height: 10px;
+            }
         }
 
         @keyframes slideInLeft {
@@ -1103,6 +1222,32 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <!-- Background Slider -->
+        <div class="hero-slider">
+            <div class="hero-slide active">
+                <img src="resources/IMG_0134.JPG" alt="Bê tông vải cuộn - Thi công">
+            </div>
+            <div class="hero-slide">
+                <img src="resources/IMG_0131.JPG" alt="Bê tông vải cuộn - Công trình">
+            </div>
+            <div class="hero-slide">
+                <img src="resources/IMG_0136.JPG" alt="Bê tông vải cuộn - Kè bờ">
+            </div>
+            <div class="hero-slide">
+                <img src="resources/IMG_0141.JPG" alt="Bê tông vải cuộn - Ứng dụng">
+            </div>
+        </div>
+
+        <!-- Slider Navigation -->
+        <div class="slider-arrow prev">&#10094;</div>
+        <div class="slider-arrow next">&#10095;</div>
+        <div class="slider-dots">
+            <div class="slider-dot active" data-slide="0"></div>
+            <div class="slider-dot" data-slide="1"></div>
+            <div class="slider-dot" data-slide="2"></div>
+            <div class="slider-dot" data-slide="3"></div>
+        </div>
+
         <div class="container">
             <div class="hero-content">
                 <h1>Giải Pháp Bê Tông Vải Cuộn Hiện Đại</h1>
@@ -1493,20 +1638,7 @@
     <div class="floating-buttons">
         <!-- Zalo Button -->
         <a href="https://zalo.me/0919335088" target="_blank" class="floating-btn zalo-btn" title="Chat Zalo">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-                <path fill="#2962ff"
-                    d="M15,36V6.827l-1.211-0.811C8.64,8.083,5,13.112,5,19v10c0,7.732,6.268,14,14,14h10c4.722,0,8.883-2.348,11.417-5.931V36H15z" />
-                <path fill="#eee"
-                    d="M29,5H19c-1.845,0-3.601,0.366-5.214,1.014C10.453,9.25,8,14.528,8,19v6c0,1.957,1.588,3.545,3.545,3.545c0.616,0,1.197-0.16,1.706-0.436c0.361,1.667,1.615,3.026,3.249,3.42V36h6l2.676-2.676C30.47,32.71,34,28.335,34,23V11C34,7.686,31.314,5,28,5H29z" />
-                <path fill="#2962ff"
-                    d="M36.75,27C34.683,30.892,30.547,33.291,26,33.291c-6.903,0-12.293-5.643-12.293-12.146V19c0-1.654,1.346-3,3-3h8c1.654,0,3,1.346,3,3v1.828C27.707,22.414,28.586,23,29.536,23H36v0.292C36,24.479,35.912,25.735,35.75,27z" />
-                <path fill="#fff"
-                    d="M14.293,21H18.5c0.276,0,0.5-0.224,0.5-0.5S18.776,20,18.5,20h-4.207c-0.276,0-0.5,0.224-0.5,0.5S14.017,21,14.293,21z" />
-                <path fill="#fff"
-                    d="M20.5,24c-0.276,0-0.5,0.224-0.5,0.5s0.224,0.5,0.5,0.5h5c0.276,0,0.5-0.224,0.5-0.5s-0.224-0.5-0.5-0.5H20.5z" />
-                <path fill="#fff"
-                    d="M20.5,28c-0.276,0-0.5,0.224-0.5,0.5s0.224,0.5,0.5,0.5h4c0.276,0,0.5-0.224,0.5-0.5s-0.224-0.5-0.5-0.5H20.5z" />
-            </svg>
+            <img src="resources/zalo-logo.png" alt="Zalo" width="36" height="36">
         </a>
         <!-- Facebook Messenger Button -->
         <a href="https://m.me/61574223576575" target="_blank" class="floating-btn messenger-btn" title="Chat Messenger">
@@ -1560,6 +1692,77 @@
                 element.style.transition = 'all 0.6s ease-out';
             });
         });
+
+        // Hero Slider functionality
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        const prevBtn = document.querySelector('.slider-arrow.prev');
+        const nextBtn = document.querySelector('.slider-arrow.next');
+        let currentSlide = 0;
+        let slideInterval;
+
+        function showSlide(index) {
+            // Handle wrap around
+            if (index >= slides.length) index = 0;
+            if (index < 0) index = slides.length - 1;
+            currentSlide = index;
+
+            // Update slides
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === currentSlide);
+            });
+
+            // Update dots
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Auto slide every 5 seconds
+        function startSlideShow() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        function stopSlideShow() {
+            clearInterval(slideInterval);
+        }
+
+        // Event listeners
+        nextBtn.addEventListener('click', () => {
+            stopSlideShow();
+            nextSlide();
+            startSlideShow();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            stopSlideShow();
+            prevSlide();
+            startSlideShow();
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                stopSlideShow();
+                showSlide(index);
+                startSlideShow();
+            });
+        });
+
+        // Start auto slideshow
+        startSlideShow();
+
+        // Pause on hover
+        const heroSection = document.querySelector('.hero');
+        heroSection.addEventListener('mouseenter', stopSlideShow);
+        heroSection.addEventListener('mouseleave', startSlideShow);
 
         // Gallery tabs functionality
         document.querySelectorAll('.gallery-tab').forEach(tab => {
