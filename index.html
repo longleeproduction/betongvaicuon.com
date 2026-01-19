@@ -308,26 +308,63 @@
             background: var(--light-gray);
         }
 
+        .gallery-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .gallery-tab {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: white;
+            color: var(--dark-gray);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-tab.active {
+            background: linear-gradient(135deg, var(--primary-color), #3b82f6);
+            color: white;
+        }
+
+        .gallery-tab:hover:not(.active) {
+            background: #e5e7eb;
+        }
+
+        .gallery-content {
+            display: none;
+        }
+
+        .gallery-content.active {
+            display: block;
+        }
+
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
-            margin-top: 40px;
+            margin-top: 20px;
         }
 
         .gallery-item {
             position: relative;
             overflow: hidden;
-            border-radius: 10px;
+            border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            height: 250px;
+            height: 280px;
             cursor: pointer;
             transition: all 0.3s;
         }
 
         .gallery-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transform: scale(1.03);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .gallery-item img {
@@ -339,6 +376,12 @@
 
         .gallery-item:hover img {
             transform: scale(1.1);
+        }
+
+        .gallery-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .gallery-overlay {
@@ -353,6 +396,7 @@
             padding: 20px;
             opacity: 0;
             transition: opacity 0.3s;
+            pointer-events: none;
         }
 
         .gallery-item:hover .gallery-overlay {
@@ -363,6 +407,87 @@
             color: white;
             font-size: 16px;
             font-weight: 500;
+        }
+
+        .video-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            z-index: 2;
+        }
+
+        .video-badge::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 8px solid white;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+        }
+
+        /* Video grid for larger videos */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .video-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            background: #000;
+        }
+
+        .video-item video {
+            width: 100%;
+            height: auto;
+            display: block;
+            max-height: 400px;
+            object-fit: contain;
+            background: #000;
+        }
+
+        .video-caption {
+            padding: 15px;
+            background: white;
+            text-align: center;
+            font-weight: 500;
+            color: var(--dark-gray);
+        }
+
+        @media (max-width: 768px) {
+            .gallery-tabs {
+                flex-wrap: wrap;
+            }
+
+            .gallery-tab {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item {
+                height: 220px;
+            }
         }
 
         /* Pricing Section */
@@ -431,6 +556,193 @@
         .price-features li {
             padding: 10px 0;
             border-bottom: 1px solid #e5e7eb;
+        }
+
+        /* Price Table */
+        .price-table-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .price-table {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .price-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .price-table thead {
+            background: linear-gradient(135deg, var(--primary-color), #3b82f6);
+        }
+
+        .price-table th {
+            padding: 18px 15px;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .price-table tbody tr {
+            transition: all 0.3s;
+        }
+
+        .price-table tbody tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .price-table tbody tr:hover {
+            background: #e0e7ff;
+        }
+
+        .price-table td {
+            padding: 16px 15px;
+            text-align: center;
+            color: var(--dark-gray);
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 14px;
+        }
+
+        .price-table td:first-child {
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .price-table .product-name {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .price-table .product-spec {
+            font-size: 13px;
+            color: #6b7280;
+            margin-top: 4px;
+        }
+
+        .price-table .price-value {
+            font-weight: 700;
+            color: var(--secondary-color);
+            font-size: 16px;
+        }
+
+        .price-table .price-vat {
+            font-weight: 700;
+            color: #dc2626;
+            font-size: 16px;
+        }
+
+        .price-note {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border-left: 4px solid var(--accent-color);
+            padding: 20px 25px;
+            margin-top: 30px;
+            border-radius: 0 12px 12px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .price-note-title {
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .price-note ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .price-note li {
+            padding: 6px 0;
+            color: #78350f;
+            font-size: 14px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .price-note li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .price-highlight {
+            background: linear-gradient(135deg, #059669, #10b981);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            margin-top: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .price-highlight strong {
+            font-size: 18px;
+        }
+
+        /* Price table responsive */
+        @media (max-width: 768px) {
+            .price-table-container {
+                padding: 0 10px;
+            }
+
+            .price-table th,
+            .price-table td {
+                padding: 12px 8px;
+                font-size: 12px;
+            }
+
+            .price-table .price-value,
+            .price-table .price-vat {
+                font-size: 13px;
+            }
+
+            .price-note {
+                padding: 15px 20px;
+            }
+
+            .price-note li {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .price-table {
+                font-size: 11px;
+            }
+
+            .price-table th {
+                padding: 10px 5px;
+                font-size: 11px;
+            }
+
+            .price-table td {
+                padding: 10px 5px;
+            }
+
+            .price-table .product-spec {
+                font-size: 10px;
+            }
+
+            .price-table .price-value,
+            .price-table .price-vat {
+                font-size: 12px;
+            }
         }
 
         /* Contact Section */
@@ -880,47 +1192,75 @@
     <section id="gallery" class="gallery">
         <div class="container">
             <h2 class="section-title">Album Sản Phẩm & Công Trình</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23667eea' width='400' height='300'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='white' font-size='20'>Lót Kênh Mương</text></svg>"
-                        alt="Lót kênh mương">
-                    <div class="gallery-overlay">
-                        <span>Thi công lót kênh mương thủy lợi</span>
+
+            <!-- Tabs -->
+            <div class="gallery-tabs">
+                <button class="gallery-tab active" data-tab="images">Hình Ảnh</button>
+                <button class="gallery-tab" data-tab="videos">Video Thi Công</button>
+            </div>
+
+            <!-- Images Content -->
+            <div class="gallery-content active" id="images">
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="resources/IMG_0130.JPG" alt="Bê tông vải cuộn">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="resources/IMG_0131.JPG" alt="Bê tông vải cuộn">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="resources/IMG_0132.JPG" alt="Bê tông vải cuộn">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="resources/IMG_0133.JPG" alt="Bê tông vải cuộn">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="resources/IMG_0134.JPG" alt="Bê tông vải cuộn">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="resources/IMG_0135.JPG" alt="Bê tông vải cuộn">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="resources/IMG_0136.JPG" alt="Bê tông vải cuộn">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="resources/IMG_0141.JPG" alt="Bê tông vải cuộn">
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%2310b981' width='400' height='300'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='white' font-size='20'>Bảo Vệ Mái Dốc</text></svg>"
-                        alt="Bảo vệ mái dốc">
-                    <div class="gallery-overlay">
-                        <span>Gia cố mái ta luy đường cao tốc</span>
+            </div>
+
+            <!-- Videos Content -->
+            <div class="gallery-content" id="videos">
+                <div class="video-grid">
+                    <div class="video-item">
+                        <video controls muted playsinline preload="metadata">
+                            <source src="resources/1JDMEA0GV_3VHG6D.MP4" type="video/mp4">
+                        </video>
                     </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23f59e0b' width='400' height='300'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='white' font-size='20'>Kè Bờ Sông</text></svg>"
-                        alt="Kè bờ sông">
-                    <div class="gallery-overlay">
-                        <span>Công trình kè bờ sông</span>
+                    <div class="video-item">
+                        <video controls muted playsinline preload="metadata">
+                            <source src="resources/1JDMEA0HA_3VHG6D.MP4" type="video/mp4">
+                        </video>
                     </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23ef4444' width='400' height='300'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='white' font-size='20'>Bọc Cống</text></svg>"
-                        alt="Bọc cống">
-                    <div class="gallery-overlay">
-                        <span>Bảo vệ cống thoát nước</span>
+                    <div class="video-item">
+                        <video controls muted playsinline preload="metadata">
+                            <source src="resources/1JDMEA0HE_3VHG6D.MP4" type="video/mp4">
+                        </video>
                     </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%238b5cf6' width='400' height='300'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='white' font-size='20'>Hồ Chứa</text></svg>"
-                        alt="Hồ chứa">
-                    <div class="gallery-overlay">
-                        <span>Lót đáy và thành hồ chứa nước</span>
+                    <div class="video-item">
+                        <video controls muted playsinline preload="metadata">
+                            <source src="resources/1JDMEA0HI_3VHG6D.MP4" type="video/mp4">
+                        </video>
                     </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%2306b6d4' width='400' height='300'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='white' font-size='20'>Công Trình Dầu Khí</text></svg>"
-                        alt="Dầu khí">
-                    <div class="gallery-overlay">
-                        <span>Ứng dụng trong công trình dầu khí</span>
+                    <div class="video-item">
+                        <video controls muted playsinline preload="metadata">
+                            <source src="resources/1JDMEA416_3VHG6D.MP4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-item">
+                        <video controls muted playsinline preload="metadata">
+                            <source src="resources/1JDMEA419_3VHG6D.MP4" type="video/mp4">
+                        </video>
                     </div>
                 </div>
             </div>
@@ -930,21 +1270,116 @@
     <!-- Pricing Section -->
     <section id="pricing" class="pricing">
         <div class="container">
-            <h2 class="section-title" style="color: white;">Báo Giá Sản Phẩm</h2>
-            <div class="pricing-card">
-                <h3 style="font-size: 28px; color: var(--primary-color); margin-bottom: 10px;">Bê Tông Vải Cuộn</h3>
-                <div class="price">
-                    150.000 -> 380.000 <span class="price-unit">VNĐ/m²</span>
+            <h2 class="section-title" style="color: white;">Bảng Báo Giá Sản Phẩm</h2>
+            <div class="price-table-container">
+                <div class="price-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Sản phẩm</th>
+                                <th>Xuất xứ</th>
+                                <th>ĐVT</th>
+                                <th>Đơn giá (VNĐ)</th>
+                                <th>Giá có VAT (VNĐ)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="product-name">Bê tông vải cuộn dày 4mm</div>
+                                    <div class="product-spec">Trọng lượng ~6kg/m²</div>
+                                </td>
+                                <td>Trung Quốc</td>
+                                <td>m²</td>
+                                <td class="price-value">100.000</td>
+                                <td class="price-vat">110.000</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-name">Bê tông vải cuộn dày 6mm</div>
+                                    <div class="product-spec">Trọng lượng ~8kg/m²</div>
+                                </td>
+                                <td>Trung Quốc</td>
+                                <td>m²</td>
+                                <td class="price-value">145.000</td>
+                                <td class="price-vat">159.500</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-name">Bê tông vải cuộn dày 8mm</div>
+                                    <div class="product-spec">Trọng lượng ~10kg/m²</div>
+                                </td>
+                                <td>Trung Quốc</td>
+                                <td>m²</td>
+                                <td class="price-value">165.000</td>
+                                <td class="price-vat">181.500</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-name">Bê tông vải cuộn dày 10mm</div>
+                                    <div class="product-spec">Trọng lượng ~12kg/m²</div>
+                                </td>
+                                <td>Trung Quốc</td>
+                                <td>m²</td>
+                                <td class="price-value">185.000</td>
+                                <td class="price-vat">203.500</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-name">Bê tông vải cuộn dày 12mm</div>
+                                    <div class="product-spec">Trọng lượng ~15kg/m²</div>
+                                </td>
+                                <td>Trung Quốc</td>
+                                <td>m²</td>
+                                <td class="price-value">205.000</td>
+                                <td class="price-vat">225.500</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-name">Bê tông vải cuộn dày 15mm</div>
+                                    <div class="product-spec">Trọng lượng ~18kg/m²</div>
+                                </td>
+                                <td>Trung Quốc</td>
+                                <td>m²</td>
+                                <td class="price-value">265.000</td>
+                                <td class="price-vat">291.500</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-name">Bê tông vải cuộn dày 10mm (Cao cấp)</div>
+                                    <div class="product-spec">Lớp lưới 3D Polyester + lớp sợi gia cường + bê tông khô
+                                        trộn sẵn + lớp chống thấm PVC. Trọng lượng ~15kg/m²</div>
+                                </td>
+                                <td>Trung Quốc</td>
+                                <td>m²</td>
+                                <td class="price-value">290.000</td>
+                                <td class="price-vat">319.000</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <ul class="price-features">
-                    <li>✓ Vật liệu chất lượng cao đạt chuẩn ASTM D8364</li>
-                    <li>✓ Độ dày từ 5mm - 13mm tùy loại</li>
-                    <li>✓ Bảo hành chất lượng sản phẩm</li>
-                    <li>✓ Hướng dẫn thi công chi tiết</li>
-                    <li>✓ Tư vấn giải pháp kỹ thuật miễn phí</li>
-                    <li>✓ Giao hàng toàn quốc</li>
-                </ul>
-                <a href="#contact" class="cta-button" style="margin-top: 20px;">Liên Hệ Ngay</a>
+
+                <div class="price-note">
+                    <div class="price-note-title">
+                        <span>⚠️</span> Lưu ý quan trọng
+                    </div>
+                    <ul>
+                        <li><strong>Giá có thể thay đổi</strong> theo thời điểm cụ thể và địa điểm giao hàng</li>
+                        <li>Giá trên là giá nhận hàng tại Hà Nội</li>
+                        <li>Thuế suất VAT: 10%</li>
+                        <li>Thanh toán: Đặt cọc 80%, thanh toán phần còn lại sau khi bàn giao đầy đủ chứng từ</li>
+                        <li>Thời gian giao hàng: 15-30 ngày kể từ ngày chuyển tiền tạm ứng</li>
+                        <li>Vui lòng liên hệ để nhận báo giá chính xác nhất</li>
+                    </ul>
+                </div>
+
+                <div class="price-highlight">
+                    <strong>Liên hệ ngay: 0919 335 088</strong> để được tư vấn và báo giá tốt nhất!
+                </div>
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="#contact" class="cta-button">Yêu Cầu Báo Giá Chi Tiết</a>
+                </div>
             </div>
         </div>
     </section>
@@ -981,7 +1416,7 @@
                         <div class="info-icon">📞</div>
                         <div>
                             <strong>Hotline:</strong><br>
-                            0919 335 088 - 098 345 2386
+                            0919 335 088
                         </div>
                     </div>
                     <div class="info-item">
@@ -1123,6 +1558,30 @@
                 element.style.opacity = '0';
                 element.style.transform = 'translateY(20px)';
                 element.style.transition = 'all 0.6s ease-out';
+            });
+        });
+
+        // Gallery tabs functionality
+        document.querySelectorAll('.gallery-tab').forEach(tab => {
+            tab.addEventListener('click', function () {
+                // Remove active class from all tabs
+                document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                this.classList.add('active');
+
+                // Hide all content
+                document.querySelectorAll('.gallery-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Show selected content
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+
+                // Pause all videos when switching tabs
+                document.querySelectorAll('.gallery-content video').forEach(video => {
+                    video.pause();
+                });
             });
         });
     </script>
