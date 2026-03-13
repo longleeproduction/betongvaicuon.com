@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bê Tông Vải Cuộn - Giải Pháp Xây Dựng Hiện Đại</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <style>
         * {
             margin: 0;
@@ -1535,24 +1539,30 @@
             <h2 class="section-title">Liên Hệ Với Chúng Tôi</h2>
             <div class="contact-content">
                 <div class="contact-form">
-                    <form>
+                    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="8a264462-568b-41af-9cad-3b3409de1fcf">
+                        <input type="hidden" name="subject" value="Yêu cầu báo giá mới từ betongvaicuon.com">
+                        <input type="hidden" name="from_name" value="Bê Tông Vải Cuộn Website">
+                        <input type="checkbox" name="botcheck" class="hidden" style="display:none">
                         <div class="form-group">
                             <label>Họ và Tên *</label>
-                            <input type="text" required>
+                            <input type="text" name="name" required>
                         </div>
                         <div class="form-group">
                             <label>Số Điện Thoại *</label>
-                            <input type="tel" required>
+                            <input type="tel" name="phone" required>
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email">
+                            <input type="email" name="email">
                         </div>
                         <div class="form-group">
                             <label>Nội Dung Yêu Cầu</label>
-                            <textarea rows="4" placeholder="Mô tả chi tiết về dự án của bạn..."></textarea>
+                            <textarea rows="4" name="message"
+                                placeholder="Mô tả chi tiết về dự án của bạn..."></textarea>
                         </div>
                         <button type="submit" class="submit-button">Gửi Yêu Cầu Báo Giá</button>
+                        <div id="formResult" style="margin-top: 15px; display: none;"></div>
                     </form>
                 </div>
                 <div class="contact-info">
@@ -1664,11 +1674,46 @@
             });
         });
 
-        // Form submission handler
-        document.querySelector('.contact-form form').addEventListener('submit', function (e) {
+        // Form submission handler (Web3Forms)
+        const contactForm = document.getElementById('contactForm');
+        const formResult = document.getElementById('formResult');
+
+        contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            alert('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong thời gian sớm nhất.');
-            this.reset();
+            const submitBtn = contactForm.querySelector('.submit-button');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Đang gửi...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(contactForm);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        formResult.style.display = 'block';
+                        formResult.style.color = '#059669';
+                        formResult.textContent = 'Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong thời gian sớm nhất.';
+                        contactForm.reset();
+                    } else {
+                        formResult.style.display = 'block';
+                        formResult.style.color = '#dc2626';
+                        formResult.textContent = 'Có lỗi xảy ra. Vui lòng thử lại hoặc gọi hotline 0919 335 088.';
+                    }
+                })
+                .catch(() => {
+                    formResult.style.display = 'block';
+                    formResult.style.color = '#dc2626';
+                    formResult.textContent = 'Có lỗi xảy ra. Vui lòng thử lại hoặc gọi hotline 0919 335 088.';
+                })
+                .finally(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    setTimeout(() => { formResult.style.display = 'none'; }, 5000);
+                });
         });
 
         // Scroll animations
