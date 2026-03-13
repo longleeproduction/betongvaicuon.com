@@ -11,7 +11,8 @@
       "Bash(python3 -m venv /tmp/favicon_venv)",
       "Bash(/tmp/favicon_venv/bin/pip install:*)",
       "Bash(/tmp/favicon_venv/bin/python3 -c \":*)",
-      "Bash(ls -la /Users/kgroup/Documents/Website/betongvaicuon.com_html/favicon* /Users/kgroup/Documents/Website/betongvaicuon.com_html/apple-touch-icon.png)"
+      "Bash(ls -la /Users/kgroup/Documents/Website/betongvaicuon.com_html/favicon* /Users/kgroup/Documents/Website/betongvaicuon.com_html/apple-touch-icon.png)",
+      "Bash(ls -la /Users/kgroup/Documents/Website/betongvaicuon.com_html/*.mp4)"
     ],
     "deny": [],
     "ask": []
