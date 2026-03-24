@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="312" viewBox="0 0 820 312">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="60%" style="stop-color:#f0f4ff"/>
+      <stop offset="100%" style="stop-color:#dbeafe"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e40af"/>
+      <stop offset="100%" style="stop-color:#2563eb"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#059669"/>
+      <stop offset="100%" style="stop-color:#10b981"/>
+    </linearGradient>
+  </defs>
+
+  <!-- White/light background -->
+  <rect width="820" height="312" fill="url(#bg3)"/>
+
+  <!-- Right blue section -->
+  <path d="M480,0 L820,0 L820,312 L420,312 Z" fill="url(#blueGrad)"/>
+
+  <!-- Diagonal overlap area -->
+  <path d="M420,312 L480,0 L520,0 L460,312 Z" fill="#1e40af" opacity="0.3"/>
+
+  <!-- Pattern on blue side -->
+  <g opacity="0.06">
+    <circle cx="600" cy="80" r="50" fill="none" stroke="white" stroke-width="1"/>
+    <circle cx="750" cy="200" r="70" fill="none" stroke="white" stroke-width="1"/>
+    <circle cx="550" cy="250" r="30" fill="none" stroke="white" stroke-width="1"/>
+    <rect x="680" y="40" width="60" height="60" rx="5" fill="none" stroke="white" stroke-width="1" transform="rotate(20, 710, 70)"/>
+  </g>
+
+  <!-- Top accent line -->
+  <rect x="0" y="0" width="480" height="3" fill="url(#greenGrad)"/>
+  <rect x="480" y="0" width="340" height="3" fill="#f59e0b"/>
+
+  <!-- Left side content -->
+  <!-- Small green badge -->
+  <rect x="50" y="45" width="90" height="22" rx="11" fill="#059669" opacity="0.1"/>
+  <text x="95" y="60" font-family="'Segoe UI', Arial, sans-serif" font-size="9" fill="#059669" text-anchor="middle" font-weight="600" letter-spacing="1.5">SINCE 2020</text>
+
+  <!-- Company name -->
+  <text x="50" y="110" font-family="'Segoe UI', Arial, sans-serif" font-size="36" font-weight="800" fill="#1e3a5f" letter-spacing="1">
+    CONCRETE
+  </text>
+  <text x="50" y="148" font-family="'Segoe UI', Arial, sans-serif" font-size="36" font-weight="800" fill="#1e40af" letter-spacing="1">
+    FABRIC
+  </text>
+
+  <!-- Green underline -->
+  <rect x="50" y="158" width="60" height="3" fill="#059669" rx="1.5"/>
+
+  <!-- Tagline -->
+  <text x="50" y="188" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#64748b" letter-spacing="1">
+    Giải Pháp Bê Tông Vải Cuộn GCCM
+  </text>
+  <text x="50" y="208" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#64748b" letter-spacing="1">
+    Nhập Khẩu Chính Hãng
+  </text>
+
+  <!-- Contact on left -->
+  <g transform="translate(50, 238)">
+    <rect x="0" y="0" width="350" height="1" fill="#e2e8f0"/>
+    <text x="0" y="25" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#94a3b8">&#9742;</text>
+    <text x="18" y="25" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#64748b" font-weight="600">0919 335 088</text>
+    <text x="140" y="25" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#94a3b8">&#9993;</text>
+    <text x="158" y="25" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#64748b" font-weight="600">betongvaicuon@gmail.com</text>
+  </g>
+
+  <!-- Website -->
+  <text x="68" y="288" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#1e40af" font-weight="600">betongvaicuon.com</text>
+
+  <!-- Right side - Features on blue -->
+  <!-- Feature boxes -->
+  <g transform="translate(510, 55)">
+    <!-- Feature 1 -->
+    <rect x="0" y="0" width="270" height="55" rx="8" fill="white" opacity="0.1"/>
+    <rect x="0" y="0" width="4" height="55" rx="2" fill="#f59e0b"/>
+    <text x="20" y="22" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="white" font-weight="700">Chống Xói Mòn</text>
+    <text x="20" y="40" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="white" opacity="0.7">Bảo vệ bờ kênh, mương, taluy hiệu quả</text>
+  </g>
+
+  <g transform="translate(510, 125)">
+    <!-- Feature 2 -->
+    <rect x="0" y="0" width="270" height="55" rx="8" fill="white" opacity="0.1"/>
+    <rect x="0" y="0" width="4" height="55" rx="2" fill="#059669"/>
+    <text x="20" y="22" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="white" font-weight="700">Thi Công Nhanh</text>
+    <text x="20" y="40" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="white" opacity="0.7">Tiết kiệm 80% thời gian so với bê tông truyền thống</text>
+  </g>
+
+  <g transform="translate(510, 195)">
+    <!-- Feature 3 -->
+    <rect x="0" y="0" width="270" height="55" rx="8" fill="white" opacity="0.1"/>
+    <rect x="0" y="0" width="4" height="55" rx="2" fill="#3b82f6"/>
+    <text x="20" y="22" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="white" font-weight="700">Nhập Khẩu Chính Hãng</text>
+    <text x="20" y="40" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="white" opacity="0.7">Sản phẩm chất lượng quốc tế, giá cạnh tranh</text>
+  </g>
+
+  <!-- Bottom bar on blue side -->
+  <text x="510" y="290" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="white" opacity="0.5" letter-spacing="2">
+    CÔNG TY TNHH VẬN CHUYỂN QUỐC TẾ VIỆT NAM
+  </text>
+</svg>

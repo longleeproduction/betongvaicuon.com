@@ -12,7 +12,10 @@
       "Bash(/tmp/favicon_venv/bin/pip install:*)",
       "Bash(/tmp/favicon_venv/bin/python3 -c \":*)",
       "Bash(ls -la /Users/kgroup/Documents/Website/betongvaicuon.com_html/favicon* /Users/kgroup/Documents/Website/betongvaicuon.com_html/apple-touch-icon.png)",
-      "Bash(ls -la /Users/kgroup/Documents/Website/betongvaicuon.com_html/*.mp4)"
+      "Bash(ls -la /Users/kgroup/Documents/Website/betongvaicuon.com_html/*.mp4)",
+      "Bash(python3 -c \"import docx; print\\(''python-docx available''\\)\")",
+      "Bash(python3 create_catalogue.py)",
+      "Bash(open /Users/kgroup/Documents/Website/betongvaicuon.com_html/Catalogue_BeTongVaiCuon_2025.docx)"
     ],
     "deny": [],
     "ask": []
