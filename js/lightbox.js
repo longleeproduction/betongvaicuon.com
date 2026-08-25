@@ -26,24 +26,7 @@
     let ty = 0;
     let lastFocus = null;
 
-    function collectImages() {
-        return Array.from(document.querySelectorAll('#images .gallery-item img')).map(img => ({
-            type: 'image',
-            src: img.getAttribute('src'),
-            alt: img.getAttribute('alt') || 'Ảnh công trình bê tông vải cuộn'
-        }));
-    }
-
-    function collectVideos() {
-        return Array.from(document.querySelectorAll('#videos .video-item video')).map(video => {
-            const source = video.querySelector('source');
-            return {
-                type: 'video',
-                src: source ? source.getAttribute('src') : video.getAttribute('src'),
-                alt: 'Video thi công bê tông vải cuộn'
-            };
-        });
-    }
+    let albumTitle = '';
 
     function applyTransform() {
         imgEl.style.transform = 'translate(' + tx + 'px, ' + ty + 'px) scale(' + scale + ')';
@@ -119,15 +102,19 @@
             btn.disabled = !isImage;
         });
 
-        counterEl.textContent = (index + 1) + ' / ' + items.length;
+        const counter = (index + 1) + ' / ' + items.length;
+        counterEl.textContent = albumTitle ? albumTitle + ' · ' + counter : counter;
         const single = items.length < 2;
         prevBtn.style.display = single ? 'none' : '';
         nextBtn.style.display = single ? 'none' : '';
     }
 
-    function open(list, startIndex) {
+    // API dùng chung: gallery-albums.js gọi hàm này để mở trình xem
+    function open(list, startIndex, title) {
+        if (!list || !list.length) return;
         items = list;
-        index = startIndex;
+        index = Math.min(Math.max(startIndex || 0, 0), list.length - 1);
+        albumTitle = title || '';
         lastFocus = document.activeElement;
 
         lb.classList.add('open');
@@ -137,6 +124,7 @@
 
         trackEvent('media_preview_open', {
             type: items[index] ? items[index].type : 'unknown',
+            album: albumTitle || 'khong-ten',
             index: index + 1
         });
     }
@@ -160,24 +148,8 @@
         render();
     }
 
-    // --- Mở từ album ảnh ---
-    document.querySelectorAll('#images .gallery-item').forEach((item, i) => {
-        item.addEventListener('click', function () {
-            open(collectImages(), i);
-        });
-    });
-
-    // --- Mở từ album video (nút mở rộng) ---
-    document.querySelectorAll('#videos .video-item').forEach((item, i) => {
-        const expandBtn = item.querySelector('.video-expand');
-        if (!expandBtn) return;
-        expandBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            const video = item.querySelector('video');
-            if (video) video.pause();
-            open(collectVideos(), i);
-        });
-    });
+    // Cho các file khác gọi: window.mediaViewer.open(danhSach, viTri, 'Tên album')
+    window.mediaViewer = { open: open, close: close };
 
     // --- Điều khiển ---
     prevBtn.addEventListener('click', () => go(-1));

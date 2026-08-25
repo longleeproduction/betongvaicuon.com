@@ -1038,39 +1038,92 @@
 
             <!-- Images Content -->
             <div class="gallery-content active" id="images">
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <img src="resources/IMG_0130.JPG" alt="Bê tông vải cuộn">
-                        <span class="media-zoom-hint">⛶</span>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="resources/IMG_0131.JPG" alt="Bê tông vải cuộn">
-                        <span class="media-zoom-hint">⛶</span>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="resources/IMG_0132.JPG" alt="Bê tông vải cuộn">
-                        <span class="media-zoom-hint">⛶</span>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="resources/IMG_0133.JPG" alt="Bê tông vải cuộn">
-                        <span class="media-zoom-hint">⛶</span>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="resources/IMG_0134.JPG" alt="Bê tông vải cuộn">
-                        <span class="media-zoom-hint">⛶</span>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="resources/IMG_0135.JPG" alt="Bê tông vải cuộn">
-                        <span class="media-zoom-hint">⛶</span>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="resources/IMG_0136.JPG" alt="Bê tông vải cuộn">
-                        <span class="media-zoom-hint">⛶</span>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="resources/IMG_0141.JPG" alt="Bê tông vải cuộn">
-                        <span class="media-zoom-hint">⛶</span>
-                    </div>
+                <p class="album-intro">Chọn một album để xem toàn bộ ảnh của sản phẩm hoặc công trình đó.</p>
+
+                <!--
+                  CÁCH THÊM ALBUM MỚI:
+                  1. Chép ảnh vào thư mục resources/
+                  2. Nhân bản một khối <article class="album"> bên dưới, đổi data-album, tên album và mô tả
+                  3. Ảnh đầu tiên trong <div class="album-photos"> chính là ảnh bìa
+                  Album chưa có ảnh nào sẽ tự động được ẩn khỏi trang, số ảnh cũng tự đếm.
+                -->
+                <div class="album-grid" id="albumGrid">
+
+                    <article class="album" data-album="san-pham-pho-thong">
+                        <h3 class="album-name">Sản phẩm bê tông vải phổ thông</h3>
+                        <p class="album-desc">Mẫu cắt dòng phổ thông, thấy rõ lớp sợi bề mặt và lõi bê tông</p>
+                        <div class="album-photos">
+                            <img src="resources/san-pham-pho-thong/bt-vai-pho-thong-01.jpg"
+                                alt="Mẫu bê tông vải cuộn loại phổ thông, mặt sợi và lõi bê tông" loading="lazy">
+                            <img src="resources/san-pham-pho-thong/bt-vai-pho-thong-02.jpg"
+                                alt="Các mẫu bê tông vải cuộn phổ thông xếp chồng theo độ dày" loading="lazy">
+                            <img src="resources/san-pham-pho-thong/bt-vai-pho-thong-03.jpg"
+                                alt="Cận cảnh mặt cắt tấm bê tông vải cuộn phổ thông" loading="lazy">
+                        </div>
+                    </article>
+
+                    <article class="album" data-album="san-pham">
+                        <h3 class="album-name">Sản phẩm bê tông vải cao cấp</h3>
+                        <p class="album-desc">Cận cảnh cuộn vải, kết cấu sợi và bề mặt bê tông vải</p>
+                        <div class="album-photos">
+                            <img src="resources/IMG_0130.JPG" alt="Cuộn bê tông vải cuộn GCCM" loading="lazy">
+                            <img src="resources/IMG_0131.JPG" alt="Cận cảnh lớp sợi gia cường của bê tông vải cuộn"
+                                loading="lazy">
+                            <img src="resources/IMG_0132.JPG" alt="Bề mặt tấm bê tông vải cuộn sau khi đóng rắn"
+                                loading="lazy">
+                            <img src="resources/IMG_0133.JPG" alt="Mối nối và đinh ghim tấm bê tông vải cuộn"
+                                loading="lazy">
+                        </div>
+                    </article>
+
+                    <article class="album" data-album="mai-doc">
+                        <h3 class="album-name">Công trình mái dốc, ta luy</h3>
+                        <p class="album-desc">Thi công chống xói mòn cho mái dốc, ta luy đường</p>
+                        <div class="album-photos">
+                            <img src="resources/IMG_0134.JPG" alt="Thi công bê tông vải cuộn trên mái dốc"
+                                loading="lazy">
+                            <img src="resources/IMG_0135.JPG" alt="Trải bê tông vải cuộn gia cố ta luy" loading="lazy">
+                            <img src="resources/IMG_0136.JPG" alt="Mái dốc sau khi phủ bê tông vải cuộn" loading="lazy">
+                        </div>
+                    </article>
+
+                    <article class="album" data-album="ho-ke-bo">
+                        <h3 class="album-name">Công trình hồ, kè bờ</h3>
+                        <p class="album-desc">Lót đáy và kè bờ hồ chứa, chống thấm và chống sạt lở</p>
+                        <div class="album-photos">
+                            <img src="resources/IMG_0141.JPG" alt="Kè bờ hồ bằng bê tông vải cuộn" loading="lazy">
+                        </div>
+                    </article>
+
+                    <!-- Các album dưới đây đã tạo sẵn, chỉ cần thêm thẻ <img> vào là tự hiện ra -->
+                    <article class="album" data-album="thuy-dien-vn">
+                        <h3 class="album-name">Công trình thuỷ điện Việt Nam</h3>
+                        <p class="album-desc">Kênh dẫn, mái đập và hồ điều tiết nhà máy thuỷ điện</p>
+                        <div class="album-photos">
+                        </div>
+                    </article>
+
+                    <article class="album" data-album="lao-cai">
+                        <h3 class="album-name">Công trình Lào Cai</h3>
+                        <p class="album-desc">Gia cố mái dốc và mương thoát nước khu vực Lào Cai</p>
+                        <div class="album-photos">
+                        </div>
+                    </article>
+
+                    <article class="album" data-album="ho-nha-vuon">
+                        <h3 class="album-name">Công trình hồ nhà vườn</h3>
+                        <p class="album-desc">Lót hồ cảnh quan, hồ cá và tiểu cảnh sân vườn</p>
+                        <div class="album-photos">
+                        </div>
+                    </article>
+
+                    <article class="album" data-album="duong-hoc-mon">
+                        <h3 class="album-name">Công trình đường đi Hóc Môn</h3>
+                        <p class="album-desc">Lót rãnh, gia cố lề đường và mương thoát nước</p>
+                        <div class="album-photos">
+                        </div>
+                    </article>
+
                 </div>
             </div>
 
@@ -1500,6 +1553,7 @@
     <script src="js/hero-slider.js"></script>
     <script src="js/catalogue.js"></script>
     <script src="js/lightbox.js"></script>
+    <script src="js/gallery-albums.js"></script>
     <script src="js/tabs.js"></script>
 </body>
 

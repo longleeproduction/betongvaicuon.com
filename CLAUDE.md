@@ -46,7 +46,8 @@ js/                     # Loaded in order at end of <body>
 ├── header.js
 ├── hero-slider.js
 ├── catalogue.js        # Defines toggleDetails() used by inline onclick
-├── lightbox.js
+├── lightbox.js         # Media viewer, exposes window.mediaViewer.open()
+├── gallery-albums.js   # Album covers/counts, opens viewer; empty albums auto-hide
 └── tabs.js
 images/, resources/     # Logo, photos, videos
 ```

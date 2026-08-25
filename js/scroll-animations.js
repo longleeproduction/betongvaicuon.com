@@ -2,7 +2,7 @@
 
 // Scroll animations
 function revealOnScroll() {
-    const elements = document.querySelectorAll('.feature-card, .gallery-item, .product-card, .client-card');
+    const elements = document.querySelectorAll('.feature-card, .album, .product-card, .client-card');
     elements.forEach(element => {
         const rect = element.getBoundingClientRect();
         if (rect.top < window.innerHeight && rect.bottom > 0) {
@@ -15,7 +15,7 @@ window.addEventListener('scroll', revealOnScroll);
 
 // Initialize animations
 document.addEventListener('DOMContentLoaded', function () {
-    const elements = document.querySelectorAll('.feature-card, .gallery-item, .product-card, .client-card');
+    const elements = document.querySelectorAll('.feature-card, .album, .product-card, .client-card');
     elements.forEach(element => {
         element.style.opacity = '0';
         element.style.transform = 'translateY(20px)';

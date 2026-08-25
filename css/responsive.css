@@ -103,7 +103,7 @@
         text-align: center;
     }
 
-    .gallery-grid {
+    .album-grid {
         grid-template-columns: 1fr;
     }
 
