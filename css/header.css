@@ -1,0 +1,261 @@
+/* Header, menu điều hướng, hamburger, menu mobile */
+
+/* Header */
+header {
+    background: transparent;
+    color: white;
+    padding: 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+header.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Header khi cuộn: nền trắng, chữ đen */
+header.scrolled .nav-links a {
+    color: var(--dark-gray);
+}
+
+header.scrolled .nav-links a:hover,
+header.scrolled .nav-links a.active {
+    color: #000;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+header.scrolled .hamburger span {
+    background: var(--primary-color);
+}
+
+header.scrolled .hamburger:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+header.scrolled .logo-text .brand-name {
+    background: linear-gradient(135deg, #111827, #4b5563);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+header.scrolled .logo-text .brand-tagline {
+    color: #6b7280;
+    opacity: 1;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    transition: padding 0.4s ease;
+}
+
+header.scrolled .header-inner {
+    padding: 8px 0;
+}
+
+/* nav kept for legacy; header-inner is the actual flex container */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    color: white;
+    position: relative;
+    z-index: 1001;
+}
+
+.logo img {
+    height: 46px;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+header.scrolled .logo img {
+    height: 38px;
+}
+
+.logo:hover img {
+    transform: scale(1.08) rotate(-2deg);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text .brand-name {
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #ffffff, #d1d5db);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo-text .brand-tagline {
+    font-size: 11px;
+    opacity: 0.7;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+}
+
+/* Desktop nav links */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 6px;
+    align-items: center;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    display: inline-block;
+    position: relative;
+    white-space: nowrap;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 20px;
+    height: 2px;
+    background: var(--accent-color);
+    border-radius: 2px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-links a:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-links a:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+.nav-links a.active {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-links a.active::after {
+    transform: translateX(-50%) scaleX(1);
+    background: var(--accent-color);
+}
+
+/* Nav CTA button */
+.nav-cta {
+    margin-left: 10px;
+}
+
+.nav-cta a {
+    background: linear-gradient(135deg, var(--accent-color), #f97316) !important;
+    color: white !important;
+    padding: 9px 22px !important;
+    border-radius: 50px !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+    letter-spacing: 0.3px;
+    box-shadow: 0 2px 12px rgba(245, 158, 11, 0.35);
+    transition: all 0.3s ease !important;
+}
+
+.nav-cta a::after {
+    display: none !important;
+}
+
+.nav-cta a:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5) !important;
+    background: linear-gradient(135deg, #f97316, var(--accent-color)) !important;
+}
+
+/* Hamburger menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background 0.3s;
+    z-index: 1001;
+    background: none;
+    border: none;
+}
+
+.hamburger:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2.5px;
+    background: white;
+    border-radius: 4px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* Mobile menu overlay */
+.mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+}

@@ -1,0 +1,256 @@
+/* Mục Bảng Báo Giá Sản Phẩm */
+
+/* Pricing Section */
+.pricing {
+    padding: 80px 0;
+    background: var(--light-gray);
+    color: var(--dark-gray);
+    position: relative;
+    overflow: hidden;
+}
+
+.pricing::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(0,0,0,0.05)" stroke-width="0.5"/><circle cx="50" cy="50" r="30" fill="none" stroke="rgba(0,0,0,0.05)" stroke-width="0.5"/><circle cx="50" cy="50" r="20" fill="none" stroke="rgba(0,0,0,0.05)" stroke-width="0.5"/></svg>');
+    background-size: 200px 200px;
+    animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(50px, -50px);
+    }
+}
+
+.pricing-card {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--dark-gray);
+    padding: 50px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+.price {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 20px 0;
+}
+
+.price-unit {
+    font-size: 20px;
+    color: var(--dark-gray);
+}
+
+.price-features {
+    list-style: none;
+    padding: 30px 0;
+}
+
+.price-features li {
+    padding: 10px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* Price Table */
+.price-table-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.price-table {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.price-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.price-table thead {
+    background: linear-gradient(135deg, #111827, #4b5563);
+}
+
+.price-table th {
+    padding: 18px 15px;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    font-size: 15px;
+}
+
+.price-table tbody tr {
+    transition: all 0.3s;
+}
+
+.price-table tbody tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+.price-table tbody tr:hover {
+    background: #f1f5f9;
+}
+
+.price-table td {
+    padding: 16px 15px;
+    text-align: center;
+    color: var(--dark-gray);
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+}
+
+.price-table td:first-child {
+    text-align: left;
+    font-weight: 500;
+}
+
+.price-table .product-name {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.price-table .product-spec {
+    font-size: 13px;
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+.price-table .price-value {
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-size: 16px;
+}
+
+.price-table .price-vat {
+    font-weight: 700;
+    color: #dc2626;
+    font-size: 16px;
+}
+
+.price-note {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border-left: 4px solid var(--accent-color);
+    padding: 20px 25px;
+    margin-top: 30px;
+    border-radius: 0 12px 12px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.price-note-title {
+    font-weight: 700;
+    color: #92400e;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.price-note ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.price-note li {
+    padding: 6px 0;
+    color: #78350f;
+    font-size: 14px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.price-note li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.price-highlight {
+    background: linear-gradient(135deg, #059669, #10b981);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    margin-top: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.price-highlight strong {
+    font-size: 18px;
+}
+
+/* Price table responsive */
+@media (max-width: 768px) {
+    .price-table-container {
+        padding: 0 10px;
+    }
+
+    .price-table th,
+    .price-table td {
+        padding: 12px 8px;
+        font-size: 12px;
+    }
+
+    .price-table .price-value,
+    .price-table .price-vat {
+        font-size: 13px;
+    }
+
+    .price-note {
+        padding: 15px 20px;
+    }
+
+    .price-note li {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .price-table {
+        font-size: 11px;
+    }
+
+    .price-table th {
+        padding: 10px 5px;
+        font-size: 11px;
+    }
+
+    .price-table td {
+        padding: 10px 5px;
+    }
+
+    .price-table .product-spec {
+        font-size: 10px;
+    }
+
+    .price-table .price-value,
+    .price-table .price-vat {
+        font-size: 12px;
+    }
+}
