@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="312" viewBox="0 0 820 312">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="50%" style="stop-color:#1e3a5f"/>
+      <stop offset="100%" style="stop-color:#1e40af"/>
+    </linearGradient>
+    <linearGradient id="greenAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#059669"/>
+      <stop offset="100%" style="stop-color:#34d399"/>
+    </linearGradient>
+    <linearGradient id="goldBar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fcd34d"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="820" height="312" fill="url(#bg2)"/>
+
+  <!-- Grid pattern -->
+  <g opacity="0.04">
+    <line x1="0" y1="60" x2="820" y2="60" stroke="white" stroke-width="0.5"/>
+    <line x1="0" y1="120" x2="820" y2="120" stroke="white" stroke-width="0.5"/>
+    <line x1="0" y1="180" x2="820" y2="180" stroke="white" stroke-width="0.5"/>
+    <line x1="0" y1="240" x2="820" y2="240" stroke="white" stroke-width="0.5"/>
+    <line x1="160" y1="0" x2="160" y2="312" stroke="white" stroke-width="0.5"/>
+    <line x1="320" y1="0" x2="320" y2="312" stroke="white" stroke-width="0.5"/>
+    <line x1="480" y1="0" x2="480" y2="312" stroke="white" stroke-width="0.5"/>
+    <line x1="640" y1="0" x2="640" y2="312" stroke="white" stroke-width="0.5"/>
+  </g>
+
+  <!-- Large decorative circle -->
+  <circle cx="700" cy="156" r="200" fill="none" stroke="white" opacity="0.03" stroke-width="2"/>
+  <circle cx="700" cy="156" r="160" fill="none" stroke="white" opacity="0.04" stroke-width="1"/>
+  <circle cx="700" cy="156" r="120" fill="none" stroke="white" opacity="0.05" stroke-width="1"/>
+
+  <!-- Top green accent bar -->
+  <rect x="0" y="0" width="820" height="4" fill="url(#greenAccent)"/>
+
+  <!-- Left vertical accent -->
+  <rect x="40" y="40" width="3" height="232" fill="url(#goldBar)" rx="1.5"/>
+
+  <!-- Import Export Badge -->
+  <g transform="translate(560, 35)">
+    <rect x="0" y="0" width="220" height="36" rx="18" fill="none" stroke="#059669" stroke-width="1.5" opacity="0.8"/>
+    <text x="110" y="23" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#34d399" text-anchor="middle" letter-spacing="3" font-weight="600">
+      IMPORT &amp; EXPORT
+    </text>
+  </g>
+
+  <!-- Company Name - Large -->
+  <text x="65" y="105" font-family="'Segoe UI', Arial, sans-serif" font-size="44" font-weight="800" fill="white" letter-spacing="1">
+    CONCRETE
+  </text>
+  <text x="65" y="150" font-family="'Segoe UI', Arial, sans-serif" font-size="44" font-weight="800" fill="white" letter-spacing="1">
+    FABRIC
+  </text>
+
+  <!-- Accent underline -->
+  <rect x="65" y="162" width="120" height="4" fill="url(#greenAccent)" rx="2"/>
+
+  <!-- Vietnamese subtitle -->
+  <text x="65" y="192" font-family="'Segoe UI', Arial, sans-serif" font-size="15" fill="#94a3b8" letter-spacing="4" font-weight="500">
+    BÊ TÔNG VẢI CUỘN VIỆT NAM
+  </text>
+
+  <!-- Feature pills -->
+  <g transform="translate(65, 215)">
+    <rect x="0" y="0" width="100" height="28" rx="14" fill="white" opacity="0.08"/>
+    <text x="50" y="18" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" opacity="0.7" letter-spacing="1">GCCM</text>
+
+    <rect x="115" y="0" width="120" height="28" rx="14" fill="white" opacity="0.08"/>
+    <text x="175" y="18" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" opacity="0.7" letter-spacing="1">CHẤT LƯỢNG CAO</text>
+
+    <rect x="250" y="0" width="120" height="28" rx="14" fill="white" opacity="0.08"/>
+    <text x="310" y="18" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" opacity="0.7" letter-spacing="1">NHẬP KHẨU</text>
+  </g>
+
+  <!-- Contact bar at bottom -->
+  <rect x="0" y="272" width="820" height="40" fill="black" opacity="0.3"/>
+  <text x="65" y="297" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="white" opacity="0.7">
+    &#9742; 0919 335 088
+  </text>
+  <text x="250" y="297" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="white" opacity="0.7">
+    &#9993; betongvaicuon@gmail.com
+  </text>
+  <text x="500" y="297" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="white" opacity="0.7">
+    &#9737; betongvaicuon.com
+  </text>
+  <text x="700" y="297" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="white" opacity="0.7">
+    &#9873; Hà Nội, Việt Nam
+  </text>
+
+  <!-- Decorative right side element -->
+  <g transform="translate(620, 90)" opacity="0.1">
+    <!-- Simplified concrete roll illustration -->
+    <ellipse cx="80" cy="65" rx="70" ry="65" fill="none" stroke="white" stroke-width="2"/>
+    <ellipse cx="80" cy="65" rx="20" ry="20" fill="none" stroke="white" stroke-width="1.5"/>
+    <path d="M10,65 Q10,0 80,0" fill="none" stroke="white" stroke-width="2"/>
+    <line x1="10" y1="65" x2="10" y2="130" stroke="white" stroke-width="2"/>
+    <path d="M10,130 Q10,130 80,130" fill="none" stroke="white" stroke-width="2"/>
+  </g>
+</svg>
