@@ -229,7 +229,7 @@ add_styled_paragraph(doc, "ĐIỂM NỔI BẬT",
 
 features = [
     ("⚡ THI CÔNG NHANH CHÓNG", "Tốc độ lắp đặt 200m²/giờ, nhanh gấp 10 lần bê tông thông thường. Tiết kiệm thời gian và nhân công đáng kể."),
-    ("💪 ĐỘ BỀN VƯỢT TRỘI", "Cường độ chịu nén tương đương MAC 600, tuổi thọ lên đến 120 năm theo chứng nhận BBA của Anh Quốc."),
+    ("💪 ĐỘ BỀN VƯỢT TRỘI", "Cường độ chịu nén tương đương MAC 350, tuổi thọ lên đến 120 năm theo chứng nhận BBA của Anh Quốc."),
     ("💧 CHỐNG THẤM TUYỆT ĐỐI", "Lớp nền PVC/LLDPE đảm bảo khả năng chống thấm hoàn hảo, ngăn ngừa xói mòn hiệu quả."),
     ("🎯 LINH HOẠT CAO", "Dễ dàng cắt, uốn theo địa hình. Phù hợp với mọi loại công trình từ đơn giản đến phức tạp."),
     ("🌱 THÂN THIỆN MÔI TRƯỜNG", "Không cần trạm trộn, giảm phát thải CO₂. Chỉ cần phun nước để kích hoạt quá trình đông kết."),
@@ -379,7 +379,7 @@ products = [
         "details": [
             "Lựa chọn phổ biến nhất cho các công trình vừa và nhỏ",
             "Phù hợp: lót kênh, mương tưới tiêu, bảo vệ mái taluy",
-            "Cường độ chịu nén tương đương MAC 600",
+            "Cường độ chịu nén tương đương MAC 350",
             "Khả năng chống thấm hoàn hảo với lớp nền PVC/LLDPE",
         ],
     },
@@ -853,7 +853,7 @@ tech_headers = ["Thông số", "CC-4 / CC-6", "CC-8 / CC-10", "CC-12 / CC-15", "
 tech_data = [
     ["Độ dày (mm)", "4 / 6", "8 / 10", "12 / 15", "10"],
     ["Trọng lượng (kg/m²)", "~6 / ~8", "~10 / ~12", "~15 / ~18", "~15"],
-    ["Cường độ chịu nén", "MAC 600", "MAC 600", "MAC 600", "MAC 600+"],
+    ["Cường độ chịu nén", "MAC 350", "MAC 350", "MAC 350", "MAC 350+"],
     ["Lớp chống thấm", "PVC/LLDPE", "PVC/LLDPE", "PVC/LLDPE", "PVC cao cấp"],
     ["Số lớp cấu tạo", "3 lớp", "3 lớp", "3 lớp", "4 lớp"],
     ["Tuổi thọ (năm)", "≥ 120", "≥ 120", "≥ 120", "≥ 120"],
