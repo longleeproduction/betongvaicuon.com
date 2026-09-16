@@ -34,13 +34,13 @@ contactForm.addEventListener('submit', function (e) {
             } else {
                 formResult.style.display = 'block';
                 formResult.style.color = '#dc2626';
-                formResult.textContent = 'Có lỗi xảy ra. Vui lòng thử lại hoặc gọi hotline 094 345 2386.';
+                formResult.textContent = 'Có lỗi xảy ra. Vui lòng thử lại hoặc gọi hotline 0919 335 088.';
             }
         })
         .catch(() => {
             formResult.style.display = 'block';
             formResult.style.color = '#dc2626';
-            formResult.textContent = 'Có lỗi xảy ra. Vui lòng thử lại hoặc gọi hotline 094 345 2386.';
+            formResult.textContent = 'Có lỗi xảy ra. Vui lòng thử lại hoặc gọi hotline 0919 335 088.';
             trackEvent('form_submit_error', { form: 'contact' });
         })
         .finally(() => {
