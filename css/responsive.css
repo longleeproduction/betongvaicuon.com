@@ -1,29 +1,51 @@
-/* Điều chỉnh chung cho màn hình nhỏ (768px / 414px) */
+/* Điều chỉnh chung cho màn hình nhỏ (1024px / 768px / 414px) */
 
-/* Responsive */
-@media (max-width: 768px) {
+/* Menu hamburger cho điện thoại và iPad (menu ngang không đủ chỗ dưới 1024px) */
+@media (max-width: 1024px) {
     .hamburger {
         display: flex;
     }
 
+    /* Ẩn hẳn khi đóng (không đẩy ra ngoài mép phải) để không tạo cuộn ngang trên iOS */
     .nav-links {
+        display: none;
         position: fixed;
         top: 0;
-        right: -100%;
-        width: 280px;
+        right: 0;
+        width: min(280px, 85vw);
         height: 100vh;
         background: #ffffff;
         flex-direction: column;
         padding: 90px 30px 40px;
         gap: 4px;
-        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
         z-index: 1000;
         overflow-y: auto;
     }
 
     .nav-links.active {
-        right: 0;
+        display: flex;
+        align-items: stretch;
+        animation: navSlideIn 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Menu đang mở: nút X tối màu trên nền trắng, ẩn chữ logo nằm đè lên menu */
+    .hamburger.active span {
+        background: var(--primary-color);
+    }
+
+    header:has(.nav-links.active) .logo-text {
+        visibility: hidden;
+    }
+
+    @keyframes navSlideIn {
+        from {
+            transform: translateX(100%);
+        }
+
+        to {
+            transform: none;
+        }
     }
 
     header .nav-links a,
@@ -68,7 +90,10 @@
     .mobile-menu-overlay.active {
         pointer-events: auto;
     }
+}
 
+/* Responsive */
+@media (max-width: 768px) {
     .logo-text .brand-tagline {
         display: none;
     }
@@ -79,10 +104,6 @@
 
     header.scrolled .logo img {
         height: 34px;
-    }
-
-    .hero h1 {
-        font-size: 32px;
     }
 
     .contact-content {
@@ -114,13 +135,5 @@
 
     .section-title {
         font-size: 28px;
-    }
-
-    .price {
-        font-size: 36px;
-    }
-
-    .pricing-card {
-        padding: 30px 20px;
     }
 }

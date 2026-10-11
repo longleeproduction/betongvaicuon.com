@@ -70,3 +70,16 @@ startSlideShow();
 const heroSection = document.querySelector('.hero');
 heroSection.addEventListener('mouseenter', stopSlideShow);
 heroSection.addEventListener('mouseleave', startSlideShow);
+
+// Vuốt trái/phải để chuyển ảnh trên màn hình cảm ứng (nút mũi tên bị ẩn ở đó)
+let heroTouchX = 0;
+heroSection.addEventListener('touchstart', e => {
+    heroTouchX = e.touches[0].clientX;
+}, { passive: true });
+heroSection.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - heroTouchX;
+    if (Math.abs(dx) < 40) return;
+    stopSlideShow();
+    if (dx < 0) nextSlide(); else prevSlide();
+    startSlideShow();
+});

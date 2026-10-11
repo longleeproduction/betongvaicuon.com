@@ -15,6 +15,7 @@
     text-align: center;
     font-size: 17px;
     color: #6b7280;
+    text-wrap: balance;
 }
 
 /* Tab chọn dòng sản phẩm */
@@ -218,27 +219,103 @@
 }
 
 /* Ứng dụng responsive */
+/* Mobile: thu gọn khoảng cách, 2 tab nằm một hàng, mỗi thẻ là một hàng ngang (icon bên trái) */
 @media (max-width: 768px) {
+    .advantages {
+        padding: 50px 0;
+    }
+
+    .advantages .section-title {
+        margin-bottom: 28px;
+    }
+
     .app-intro {
-        font-size: 15px;
+        margin: -12px auto 18px;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .app-tabs {
+        flex-wrap: nowrap;
+        gap: 6px;
+        margin-bottom: 14px;
     }
 
     .app-tab {
-        padding: 10px 20px;
-        font-size: 14px;
+        flex: 1;
+        padding: 9px 10px;
+        font-size: 13px;
+    }
+
+    .app-positioning {
+        padding: 10px 14px;
+        margin-bottom: 12px;
+        border-radius: 0 10px 10px 0;
+    }
+
+    /* Trùng với tên tab đang chọn */
+    .app-badge {
+        display: none;
+    }
+
+    .app-positioning p {
+        min-width: 0;
+        font-size: 13px;
+        line-height: 1.55;
     }
 
     .app-grid {
         grid-template-columns: 1fr;
+        gap: 8px;
     }
 
-    .app-positioning {
-        padding: 18px 20px;
+    .app-card {
+        display: grid;
+        grid-template-columns: 40px 1fr;
+        column-gap: 12px;
+        align-items: start;
+        padding: 12px 14px;
+        border-radius: 10px;
+        box-shadow: none;
+    }
+
+    .app-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .app-icon {
+        grid-row: 1 / span 2;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        font-size: 20px;
+        margin-bottom: 0;
+    }
+
+    .app-card h3 {
+        font-size: 15px;
+        margin-bottom: 2px;
+    }
+
+    .app-card p {
+        font-size: 13px;
+        line-height: 1.5;
     }
 
     .app-foot {
         flex-direction: column;
-        gap: 8px;
+        gap: 4px;
+        margin-top: 18px;
+        font-size: 14px;
         text-align: center;
+    }
+}
+
+/* Máy rất hẹp (iPhone SE đời đầu): giữ tên 2 tab trên một dòng */
+@media (max-width: 360px) {
+    .app-tab {
+        padding: 9px 6px;
+        font-size: 12px;
     }
 }

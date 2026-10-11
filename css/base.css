@@ -15,11 +15,17 @@
     --white: #ffffff;
 }
 
+/* Chặn cuộn ngang trên mobile: iOS Safari chỉ tôn trọng overflow-x đặt ở html.
+   body dùng clip (không tạo vùng cuộn riêng) để position: sticky vẫn hoạt động. */
+html {
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--dark-gray);
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 .container {

@@ -31,25 +31,24 @@ css/                    # One file per section, linked in cascade order
 ├── hero.css            # Hero slider, main CTA button
 ├── features.css
 ├── applications.css    # "Lĩnh Vực Ứng Dụng" tabs
-├── catalogue.css       # Product cards, filters
+├── catalogue.css       # Product groups and compact cards
 ├── gallery.css
 ├── lightbox.css        # Image/video viewer
 ├── clients.css
-├── pricing.css
 ├── contact-footer.css
 ├── responsive.css      # Shared 768px / 414px overrides
 └── floating-buttons.css
 js/                     # Loaded in order at end of <body>
 ├── analytics.js        # Defines trackEvent() - must load first
-├── contact-form.js
+├── contact-form.js     # Posts to Web3Forms (email) and admin /api/public/leads in parallel
 ├── scroll-animations.js
 ├── header.js
 ├── hero-slider.js
-├── catalogue.js        # Defines toggleDetails() used by inline onclick
 ├── lightbox.js         # Media viewer, exposes window.mediaViewer.open()
 ├── gallery-albums.js   # Album covers/counts, opens viewer; empty albums auto-hide
 └── tabs.js
 images/, resources/     # Logo, photos, videos
+admin/                  # Separate Node/MongoDB admin app - see admin/README.md; never deploy with the static site
 ```
 
 **Load order matters.** CSS files override each other in link order (`responsive.css` and `floating-buttons.css` come last on purpose). JS files are plain scripts sharing one global scope: `analytics.js` must stay first because later files call `trackEvent()`, and top-level `const`/`let` names must stay unique across files.
@@ -82,3 +81,12 @@ Consistent border-radius values: 8px, 10px, 20px
 - BEM-like CSS class naming (e.g., `hero-content`, `feature-card`, `contact-form`)
 - Responsive images and SVG graphics embedded inline
 - Vietnamese language content throughout
+
+## Admin app (`admin/`)
+
+Internal management system (staff, customers/leads, reminders, orders, inventory, files, dashboard) - an npm workspace with its own build, unrelated to the static site's no-build rule:
+
+- `admin/server/` - Express 5 + Mongoose API (ESM). Permissions live in `server/src/config/permissions.js` and are enforced server-side.
+- `admin/web/` - React + Vite + Ant Design SPA; imports shared labels/enums via the `@shared` alias.
+- `admin/shared/constants.js` - status/source/role lists used by both sides; add new enum values here.
+- Commands (run in `admin/`): `npm run dev`, `npm test` (needs local mongod), `npm run build`, `npm run seed`.

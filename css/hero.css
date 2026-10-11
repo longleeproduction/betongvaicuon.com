@@ -180,3 +180,71 @@
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(245, 158, 11, 0.6);
 }
+
+/* iPhone, iPad (kể cả iPad xoay ngang): ảnh giới thiệu theo tỉ lệ 16:9 thay vì cả màn hình,
+   để nội dung bên dưới hiện ngay ở màn hình đầu. Khung tự cao thêm nếu chữ không vừa. */
+@media (max-width: 1024px), (hover: none) and (pointer: coarse) {
+    .hero {
+        height: auto;
+        min-height: min(56.25vw, 100vh);
+        padding: 80px 0 50px;
+    }
+
+    /* Màn hình cảm ứng: chuyển ảnh bằng cách vuốt hoặc chạm vào chấm */
+    .slider-arrow {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 72px 0 44px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+        margin-bottom: 12px;
+    }
+
+    .hero p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .hero .cta-button {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+}
+
+/* iPhone: khung 16:9 chỉ cao ~220px nên bỏ câu mô tả, giữ tiêu đề và nút báo giá */
+@media (max-width: 480px) {
+    .hero {
+        padding: 68px 0 32px;
+    }
+
+    .hero h1 {
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+
+    .hero p {
+        display: none;
+    }
+
+    .hero .cta-button {
+        padding: 9px 22px;
+        font-size: 14px;
+        box-shadow: 0 3px 10px rgba(245, 158, 11, 0.4);
+    }
+
+    .slider-dots {
+        bottom: 12px;
+        gap: 10px;
+    }
+
+    .slider-dot {
+        width: 8px;
+        height: 8px;
+    }
+}

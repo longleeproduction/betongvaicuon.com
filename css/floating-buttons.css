@@ -78,14 +78,6 @@
         padding: 0 15px;
     }
 
-    .hero h1 {
-        font-size: 28px;
-    }
-
-    .hero p {
-        font-size: 16px;
-    }
-
     .cta-button {
         padding: 12px 30px;
         font-size: 16px;
@@ -104,14 +96,6 @@
     }
 
     .info-item {
-        font-size: 14px;
-    }
-
-    .app-card h3 {
-        font-size: 16px;
-    }
-
-    .app-card p {
         font-size: 14px;
     }
 
